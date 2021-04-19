@@ -59,9 +59,4 @@ public class Autor {
     public LocalDateTime getInstante() {
         return instante;
     }
-
-    @Override
-    public String toString() {
-        return "Autor{" + "id=" + id + ", email='" + email + '\'' + ", nome='" + nome + '\'' + ", descricao='" + descricao + '\'' + ", instante=" + instante + '}';
-    }
 }
