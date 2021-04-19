@@ -1,0 +1,13 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mariadb123
+    ports:
+      - 3306:3306
+    volumes:
+      - casa_do_codigo:/var/lib/mysql
+
+volumes:
+  casa_do_codigo:
