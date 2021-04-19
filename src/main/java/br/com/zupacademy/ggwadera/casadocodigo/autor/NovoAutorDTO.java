@@ -1,12 +1,11 @@
-package br.com.zupacademy.ggwadera.casadocodigo.controller.form;
+package br.com.zupacademy.ggwadera.casadocodigo.autor;
 
-import br.com.zupacademy.ggwadera.casadocodigo.model.Autor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-public class AutorForm {
+public class NovoAutorDTO {
 
     @Email
     @NotBlank

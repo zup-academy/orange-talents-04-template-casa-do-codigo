@@ -1,10 +1,8 @@
-package br.com.zupacademy.ggwadera.casadocodigo.controller.form;
-
-import br.com.zupacademy.ggwadera.casadocodigo.model.Categoria;
+package br.com.zupacademy.ggwadera.casadocodigo.categoria;
 
 import javax.validation.constraints.NotBlank;
 
-public class CategoriaForm {
+public class NovaCategoriaDTO {
 
     @NotBlank
     private String nome;

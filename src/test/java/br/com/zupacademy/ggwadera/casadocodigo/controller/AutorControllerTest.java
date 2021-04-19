@@ -1,8 +1,9 @@
 package br.com.zupacademy.ggwadera.casadocodigo.controller;
 
-import br.com.zupacademy.ggwadera.casadocodigo.controller.form.AutorForm;
-import br.com.zupacademy.ggwadera.casadocodigo.model.Autor;
-import br.com.zupacademy.ggwadera.casadocodigo.repository.AutorRepository;
+import br.com.zupacademy.ggwadera.casadocodigo.autor.Autor;
+import br.com.zupacademy.ggwadera.casadocodigo.autor.AutorController;
+import br.com.zupacademy.ggwadera.casadocodigo.autor.AutorRepository;
+import br.com.zupacademy.ggwadera.casadocodigo.autor.NovoAutorDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ class AutorControllerTest {
 
     @Test
     public void deveRetornarStatus200() throws Exception {
-        AutorForm form = new AutorForm();
+        NovoAutorDTO form = new NovoAutorDTO();
         form.setEmail("autor@email.com");
         form.setNome("Autor Autoria");
         form.setDescricao("Descrição do livro");
@@ -43,7 +44,7 @@ class AutorControllerTest {
 
     @Test
     public void deveRetornarErro400ComValoresInvalido() throws Exception {
-        AutorForm form = new AutorForm();
+        NovoAutorDTO form = new NovoAutorDTO();
         mvc.perform(post("/autores").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(form)))
             .andExpect(status().isBadRequest())
             .andExpect(jsonPath("$.length()").value(greaterThan(0)));

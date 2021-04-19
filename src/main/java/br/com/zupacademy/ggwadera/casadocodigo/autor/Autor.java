@@ -1,4 +1,4 @@
-package br.com.zupacademy.ggwadera.casadocodigo.model;
+package br.com.zupacademy.ggwadera.casadocodigo.autor;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NaturalId;

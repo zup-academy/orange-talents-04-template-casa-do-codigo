@@ -1,4 +1,4 @@
-package br.com.zupacademy.ggwadera.casadocodigo.model;
+package br.com.zupacademy.ggwadera.casadocodigo.categoria;
 
 import org.hibernate.annotations.NaturalId;
 

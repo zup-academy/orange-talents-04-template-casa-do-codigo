@@ -1,7 +1,5 @@
-package br.com.zupacademy.ggwadera.casadocodigo.controller.validator;
+package br.com.zupacademy.ggwadera.casadocodigo.categoria;
 
-import br.com.zupacademy.ggwadera.casadocodigo.controller.form.CategoriaForm;
-import br.com.zupacademy.ggwadera.casadocodigo.repository.CategoriaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -17,13 +15,13 @@ public class NomeCategoriaUnicoValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return CategoriaForm.class.isAssignableFrom(aClass);
+        return NovaCategoriaDTO.class.isAssignableFrom(aClass);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
         if (errors.hasErrors()) return;
-        final CategoriaForm form = (CategoriaForm) o;
+        final NovaCategoriaDTO form = (NovaCategoriaDTO) o;
         if (repository.existsByNome(form.getNome())) {
             errors.rejectValue("nome", null, "O nome informado já existe: " + form.getNome());
         }

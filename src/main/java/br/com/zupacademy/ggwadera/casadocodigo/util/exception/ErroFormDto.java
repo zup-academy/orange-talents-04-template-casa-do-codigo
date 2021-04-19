@@ -1,4 +1,4 @@
-package br.com.zupacademy.ggwadera.casadocodigo.controller.dto;
+package br.com.zupacademy.ggwadera.casadocodigo.util.exception;
 
 public class ErroFormDto {
 

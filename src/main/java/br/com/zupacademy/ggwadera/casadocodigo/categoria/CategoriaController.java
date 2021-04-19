@@ -1,9 +1,5 @@
-package br.com.zupacademy.ggwadera.casadocodigo.controller;
+package br.com.zupacademy.ggwadera.casadocodigo.categoria;
 
-import br.com.zupacademy.ggwadera.casadocodigo.controller.form.CategoriaForm;
-import br.com.zupacademy.ggwadera.casadocodigo.controller.validator.NomeCategoriaUnicoValidator;
-import br.com.zupacademy.ggwadera.casadocodigo.model.Categoria;
-import br.com.zupacademy.ggwadera.casadocodigo.repository.CategoriaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +25,7 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> cadastrar(@RequestBody @Valid CategoriaForm form) {
+    public ResponseEntity<Void> cadastrar(@RequestBody @Valid NovaCategoriaDTO form) {
         final Categoria categoria = repository.save(form.toModel());
         return ResponseEntity.ok().build();
     }

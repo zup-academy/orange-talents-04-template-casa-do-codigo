@@ -1,6 +1,5 @@
-package br.com.zupacademy.ggwadera.casadocodigo.controller.exception;
+package br.com.zupacademy.ggwadera.casadocodigo.util.exception;
 
-import br.com.zupacademy.ggwadera.casadocodigo.controller.dto.ErroFormDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
