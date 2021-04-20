@@ -2,8 +2,10 @@ package br.com.zupacademy.ggwadera.casadocodigo.livro;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,5 +33,13 @@ public class LivroController {
     public ResponseEntity<Page<LivroItemListaDTO>> listar(Pageable pageable) {
         final Page<LivroItemListaDTO> livros = livroRepository.findAll(pageable).map(LivroItemListaDTO::new);
         return ResponseEntity.ok(livros);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LivroDetalheDTO> buscar(@PathVariable Long id) {
+        final Livro livro = livroRepository.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                "Não foi encontrado um livro com o id " + id));
+        return ResponseEntity.ok(new LivroDetalheDTO(livro));
     }
 }
