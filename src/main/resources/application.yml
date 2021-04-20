@@ -3,6 +3,7 @@ spring:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/casa_do_codigo?createDatabaseIfNotExist=true
     username: root
     password: mariadb123
+    initialization-mode: always
 
   jpa:
     show-sql: true

@@ -24,7 +24,7 @@ public class Autor {
     private String descricao;
 
     @CreationTimestamp
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime instante;
 
     /**
