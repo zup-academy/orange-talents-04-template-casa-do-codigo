@@ -1,8 +1,10 @@
 package br.com.zupacademy.ggwadera.casadocodigo.autor;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
@@ -11,17 +13,10 @@ import javax.validation.Valid;
 public class AutorController {
 
     private final AutorRepository repository;
-    private final EmailUnicoAutorValidator emailUnicoAutorValidator;
 
     public AutorController(
-        AutorRepository repository, EmailUnicoAutorValidator emailUnicoAutorValidator) {
+        AutorRepository repository) {
         this.repository = repository;
-        this.emailUnicoAutorValidator = emailUnicoAutorValidator;
-    }
-
-    @InitBinder
-    public void init(WebDataBinder binder) {
-        binder.addValidators(emailUnicoAutorValidator);
     }
 
     @PostMapping

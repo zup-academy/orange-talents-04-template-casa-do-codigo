@@ -1,5 +1,6 @@
 package br.com.zupacademy.ggwadera.casadocodigo.autor;
 
+import br.com.zupacademy.ggwadera.casadocodigo.util.annotations.UniqueValue;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -9,6 +10,7 @@ public class NovoAutorDTO {
 
     @Email
     @NotBlank
+    @UniqueValue(domainClass = Autor.class, fieldName = "email")
     private String email;
 
     @NotBlank
