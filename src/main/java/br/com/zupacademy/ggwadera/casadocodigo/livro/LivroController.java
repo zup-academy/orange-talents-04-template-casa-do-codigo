@@ -28,8 +28,8 @@ public class LivroController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<LivroDTO>> listar(Pageable pageable) {
-        final Page<LivroDTO> livros = livroRepository.findAll(pageable).map(LivroDTO::new);
+    public ResponseEntity<Page<LivroItemListaDTO>> listar(Pageable pageable) {
+        final Page<LivroItemListaDTO> livros = livroRepository.findAll(pageable).map(LivroItemListaDTO::new);
         return ResponseEntity.ok(livros);
     }
 }
