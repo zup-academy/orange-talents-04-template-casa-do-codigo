@@ -1,10 +1,9 @@
 package br.com.zupacademy.ggwadera.casadocodigo.livro;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,5 +25,11 @@ public class LivroController {
     public ResponseEntity<Void> cadastrar(@RequestBody @Valid NovoLivroDTO form) {
         final Livro livro = livroRepository.save(form.toModel(manager));
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<LivroDTO>> listar(Pageable pageable) {
+        final Page<LivroDTO> livros = livroRepository.findAll(pageable).map(LivroDTO::new);
+        return ResponseEntity.ok(livros);
     }
 }

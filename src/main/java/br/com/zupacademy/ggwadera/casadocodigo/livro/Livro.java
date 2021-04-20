@@ -37,10 +37,10 @@ public class Livro {
 
     private LocalDate dataPublicacao;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Categoria categoria;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Autor autor;
 
     @Deprecated
@@ -57,6 +57,14 @@ public class Livro {
         this.dataPublicacao = builder.dataPublicacao;
         this.categoria = builder.categoria;
         this.autor = builder.autor;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
     }
 
     public static class Builder {
