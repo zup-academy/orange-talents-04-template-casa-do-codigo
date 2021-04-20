@@ -6,14 +6,14 @@ import javax.persistence.Query;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class ExistsValidator implements ConstraintValidator<Exists, Object> {
+public class ExistsIdValidator implements ConstraintValidator<ExistsId, Object> {
     @PersistenceContext
     private EntityManager manager;
 
     private Class<?> klass;
 
     @Override
-    public void initialize(Exists params) {
+    public void initialize(ExistsId params) {
         klass = params.domainClass();
     }
 

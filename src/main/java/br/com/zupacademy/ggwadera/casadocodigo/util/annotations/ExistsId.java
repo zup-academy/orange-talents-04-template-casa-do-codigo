@@ -5,10 +5,10 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = {ExistsValidator.class})
+@Constraint(validatedBy = {ExistsIdValidator.class})
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Exists {
+public @interface ExistsId {
     String message() default "não existe um recurso com o id especificado";
 
     Class<?>[] groups() default {};

@@ -2,7 +2,7 @@ package br.com.zupacademy.ggwadera.casadocodigo.livro;
 
 import br.com.zupacademy.ggwadera.casadocodigo.autor.Autor;
 import br.com.zupacademy.ggwadera.casadocodigo.categoria.Categoria;
-import br.com.zupacademy.ggwadera.casadocodigo.util.annotations.Exists;
+import br.com.zupacademy.ggwadera.casadocodigo.util.annotations.ExistsId;
 import br.com.zupacademy.ggwadera.casadocodigo.util.annotations.UniqueValue;
 import org.hibernate.validator.constraints.ISBN;
 
@@ -39,11 +39,11 @@ public class NovoLivroDTO {
     private LocalDate dataPublicacao;
 
     @NotNull
-    @Exists(domainClass = Categoria.class)
+    @ExistsId(domainClass = Categoria.class)
     private Long categoriaId;
 
     @NotNull
-    @Exists(domainClass = Autor.class)
+    @ExistsId(domainClass = Autor.class)
     private Long autorId;
 
     public String getTitulo() {
