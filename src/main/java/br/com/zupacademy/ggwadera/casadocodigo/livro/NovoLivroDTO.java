@@ -5,6 +5,7 @@ import br.com.zupacademy.ggwadera.casadocodigo.categoria.Categoria;
 import br.com.zupacademy.ggwadera.casadocodigo.util.annotations.ExistsId;
 import br.com.zupacademy.ggwadera.casadocodigo.util.annotations.UniqueValue;
 import org.hibernate.validator.constraints.ISBN;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.EntityManager;
 import javax.validation.constraints.*;
@@ -21,8 +22,10 @@ public class NovoLivroDTO {
     @Size(max = 500)
     private String resumo;
 
+    @NotBlank
     private String sumario;
 
+    @NotNull
     @DecimalMin(value = "20")
     private BigDecimal preco;
 
@@ -36,6 +39,8 @@ public class NovoLivroDTO {
     private String isbn;
 
     @FutureOrPresent
+    @DateTimeFormat
+    @NotNull
     private LocalDate dataPublicacao;
 
     @NotNull
