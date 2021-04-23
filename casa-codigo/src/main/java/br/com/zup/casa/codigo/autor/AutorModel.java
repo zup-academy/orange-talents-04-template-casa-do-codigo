@@ -36,13 +36,11 @@ public class AutorModel {
 	
 	@Deprecated
 	public AutorModel() {
-		
+		 
 	}
 	
 	
-	
-	
-public AutorModel(@NotNull String nome, @Email String email, @NotNull @Size(min = 20, max = 400) String descricao) {
+public AutorModel(@NotNull String nome, @Email String email, @NotNull @Size(max = 400) String descricao) {
 		
 		this.nome = nome;
 		this.email = email;
