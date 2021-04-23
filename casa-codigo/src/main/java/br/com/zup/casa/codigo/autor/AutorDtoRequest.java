@@ -21,7 +21,7 @@ public class AutorDtoRequest {
 	@Email
 	private String email;
 	
-	@NotBlank  @Size(min=20, max=400)
+	@NotBlank  @Size(max=400)
 	private String descricao; 
 	
 	
