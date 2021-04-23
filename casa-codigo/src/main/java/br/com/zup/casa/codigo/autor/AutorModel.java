@@ -19,14 +19,15 @@ public class AutorModel {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
+	@NotBlank 
 	private String nome;
 	
+	@NotBlank 
 	@JoinColumn(unique = true) 
 	@Email
 	private String email;
 	
-	@NotNull @Size(min=20, max=400)
+	@NotBlank @Size(max=400)
 	private String descricao; 
 	
 	@NotNull 
