@@ -8,13 +8,6 @@ import javax.validation.constraints.*;
 @Entity
 public class AutorModel {
 	
-	/* O instante não pode ser nulo - ok 
-	O email é obrigatório -ok 
-	O email tem que ter formato válido - ok
-	O nome é obrigatório - ok
-	A descrição é obrigatória e não pode passar de 400 caracteres - ok 
-	Resultado esperado
-	Um novo autor criado e status 200 retornado*/
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
