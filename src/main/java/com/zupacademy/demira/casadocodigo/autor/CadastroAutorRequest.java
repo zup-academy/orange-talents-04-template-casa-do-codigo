@@ -6,31 +6,26 @@ import javax.validation.constraints.Size;
 
 public class CadastroAutorRequest {
 
-    @Email
     @NotBlank
     private String nome;
 
     @NotBlank
+    @Email
     private String email;
 
     @NotBlank
     @Size(min= 5, max = 300)
     private String descricao;
 
-    public void setNome(String nome) {
+    public CadastroAutorRequest(@NotBlank String nome,
+                                @NotBlank @Email String email,
+                                @NotBlank @Size(min= 5, max = 300) String descricao) {
         this.nome = nome;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-
-    public Autor converteParaModel() {
+    public Autor toModel() {
         return new Autor(this.email, this.nome, this.descricao);
     }
 

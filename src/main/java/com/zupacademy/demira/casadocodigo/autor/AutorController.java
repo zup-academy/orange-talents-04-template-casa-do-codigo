@@ -21,7 +21,7 @@ public class AutorController {
     @Transactional
     public ResponseEntity<CadastroAutorResponse> cadastrar(@RequestBody @Valid CadastroAutorRequest form){
 
-        Autor autor = repository.save(form.converteParaModel());
+        Autor autor = repository.save(form.toModel());
 
         return ResponseEntity.ok().body(new CadastroAutorResponse(autor));
     }
