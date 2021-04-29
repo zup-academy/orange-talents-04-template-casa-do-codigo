@@ -1,10 +1,11 @@
 package com.zupacademy.demira.casadocodigo.autor;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.util.Assert;
-
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,19 +17,25 @@ public class Autor {
     private Long id;
 
     @Column(nullable = false)
-    private String nome;
+    private @NotBlank String nome;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private @NotBlank @Email String email;
 
     @Column(nullable = false)
-    private String descricao;
+    private @NotBlank @Size(max = 400) String descricao;
 
     @CreationTimestamp
     @Column(nullable = false)
     private LocalDateTime dataRegistro;
 
-    public Autor(String nome, String email, String descricao) {
+    @Deprecated
+    public Autor() {
+    }
+
+    public Autor(@NotBlank String nome,
+                 @NotBlank @Email String email,
+                 @NotBlank @Size(max = 400) String descricao) {
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
@@ -53,5 +60,7 @@ public class Autor {
     public LocalDateTime getDataRegistro() {
         return dataRegistro;
     }
+
+
 
 }
