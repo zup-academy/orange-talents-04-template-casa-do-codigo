@@ -1,27 +1,20 @@
 package com.zupacademy.demira.casadocodigo.autor;
 
+import com.zupacademy.demira.casadocodigo.compartilhado.VerificaExistenciaNoBanco;
+
 import javax.validation.constraints.*;
 
 
 public class CadastroAutorRequest {
 
-    @Email
-    @NotNull
-    private String email;
+    private @Email @NotNull @VerificaExistenciaNoBanco(campo = "email", tabela = Autor.class) String email;
 
-    @NotBlank
-    @NotEmpty
-    private String nome;
+    private @NotEmpty @NotBlank String nome;
 
-    @Size(max = 400)
-    @NotBlank
-    private String descricao;
-
-
-
+    private @NotBlank @Size(max = 400) String descricao;
 
     public CadastroAutorRequest(@NotBlank String nome,
-                                @NotBlank @NotEmpty @Email String email,
+                                @NotBlank @NotEmpty @Email @VerificaExistenciaNoBanco(campo = "email", tabela = Autor.class) String email,
                                 @NotBlank @Size(min= 5, max = 400) String descricao) {
 
         if (nome == null || email == null || email == null || nome == "" ||

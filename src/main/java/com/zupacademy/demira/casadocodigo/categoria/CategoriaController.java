@@ -24,8 +24,6 @@ public class CategoriaController {
         public ResponseEntity<CadastroCategoriaResponse> cadastrar(@RequestBody @Valid CadastroCategoriaRequest form,
                                                                UriComponentsBuilder uriBuilder){
 
-            Optional<Categoria> possivelCategoria = repository.findByNome(form.getNome());
-
             if (repository.existsByNome(form.getNome())){
                 return ResponseEntity.badRequest().build();
             }
