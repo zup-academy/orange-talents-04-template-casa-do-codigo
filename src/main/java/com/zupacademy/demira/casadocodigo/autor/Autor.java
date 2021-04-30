@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @Entity
 @Table(name = "autores")
@@ -27,7 +28,7 @@ public class Autor {
 
     @CreationTimestamp
     @Column(nullable = false)
-    private LocalDateTime dataRegistro;
+    private LocalDateTime dataRegistro = LocalDateTime.now(ZoneOffset.UTC);
 
     @Deprecated
     public Autor() {
